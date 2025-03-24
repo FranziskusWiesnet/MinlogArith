@@ -31,6 +31,12 @@ ghci> map f [0..(n-1)]
 [367,31,7,3]
 (31.76 secs, 22,795,330,128 bytes)
 
+ghci> let (f, n) = toPrimes 23447
+(0.00 secs, 69,880 bytes)
+ghci> map f [0..(n-1)]
+[23447]
+(51.74 secs, 36,599,231,432 bytes)
+
 
 Test for the uniqueness of the prime factorization:
 ===================================================
