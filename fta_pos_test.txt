@@ -1,0 +1,107 @@
+Test for the existence of the prime factorization:
+==================================================
+
+ghci> let (f, n) = toPrimes 9658
+(0.00 secs, 69,880 bytes)
+ghci> map f [0..(n-1)]
+[439,11,2]
+(1.31 secs, 883,139,624 bytes)
+
+ghci> let (f, n) = toPrimes 10655
+(0.00 secs, 69,872 bytes)
+ghci> map f [0..(n-1)]
+[2131,5]
+(2.20 secs, 1,510,629,080 bytes)
+
+ghci> let (f, n) = toPrimes 87535
+(0.00 secs, 69,872 bytes)
+ghci> map f [0..(n-1)]
+[61,41,7,5]
+(13.90 secs, 9,659,390,024 bytes)
+
+ghci> let (f, n) = toPrimes 96582
+(0.00 secs, 69,888 bytes)
+ghci> map f [0..(n-1)]
+[16097,3,2]
+(30.95 secs, 21,917,689,928 bytes)
+
+ghci> let (f, n) = toPrimes 238917
+(0.00 secs, 69,888 bytes)
+ghci> map f [0..(n-1)]
+[367,31,7,3]
+(31.76 secs, 22,795,330,128 bytes)
+
+
+Test for the uniqueness of the prime factorization:
+===================================================
+
+ghci> let ps n = if n < 5 then [2,3,5,7,11] !! fromIntegral n else 1
+(0.02 secs, 69,728 bytes)
+ghci> let qs n = if n < 5 then [11,2,7,5,3] !! fromIntegral n else 1
+(0.01 secs, 69,728 bytes)
+ghci> let (f,g) = genPms 5 5 ps qs
+(0.00 secs, 69,880 bytes)
+ghci> map f [0..4]
+[4,0,3,2,1]
+(0.00 secs, 202,984 bytes)
+ghci> map g [0..4]
+[1,4,3,2,0]
+(0.00 secs, 83,944 bytes)
+
+ghci> let ps n = if n < 5 then [2,3,5,7,11] !! fromIntegral n else 1
+(0.01 secs, 69,736 bytes)
+ghci> let ps n = if n < 5 then [13,17,23,29,31] !! fromIntegral n else 1
+(0.00 secs, 69,728 bytes)
+ghci> map f [0..4]
+[4,0,3,2,1]
+(0.00 secs, 84,256 bytes)
+ghci> map g [0..4]
+[1,4,3,2,0]
+
+ghci> let ps n = if n < 20 then [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71] !! fromIntegral n else 1
+(0.01 secs, 69,720 bytes)
+ghci> let qs n = if n < 20 then [7,17,5,3,19,23,29,31,13,37,41,43,47,53,59,61,71,67,11,2] !! fromIntegral n else 1
+(0.01 secs, 69,720 bytes)
+ghci> let (f,g) = genPms 20 20 ps qs
+(0.00 secs, 69,880 bytes)
+ghci> map f [0..19]
+[3,6,2,1,7,8,9,10,5,11,12,13,14,15,16,17,19,18,4,0]
+(0.05 secs, 14,155,816 bytes)
+ghci> map g [0..19]
+[19,3,2,0,18,8,1,4,5,6,7,9,10,11,12,13,14,15,17,16]
+(0.00 secs, 188,376 bytes)
+
+
+Test for ProdSplit:
+===================
+
+ghci> prodSplit 3 4 2 6
+(1,(3,(2,2)))
+(0.01 secs, 1,327,464 bytes)
+
+ghci> prodSplit 90 10 45 4
+(15,(6,(5,2)))
+(0.86 secs, 555,462,384 bytes)
+
+ghci> prodSplit 20 20 20 20
+(2,(10,(10,2)))
+(1.12 secs, 712,882,112 bytes)
+
+ghci> prodSplit 42 12 21 24
+(7,(6,(3,4)))
+(1.34 secs, 847,099,688 bytes)
+
+ghci> prodSplit 90 30 45 12
+(5,(18,(15,2)))
+(14.03 secs, 9,580,567,688 bytes)
+
+ghci> prodSplit 42 24 21 48
+(7,(6,(3,8)))
+(19.36 secs, 13,143,518,576 bytes)
+
+ghci> prodSplit 20 100 125 16
+(5,(4,(25,4)))
+(21.78 secs, 14,580,270,160 bytes)
+
+ghci> prodSplit 200 100 625 32
+"""Takes longer than 5 minutes to compute."""
