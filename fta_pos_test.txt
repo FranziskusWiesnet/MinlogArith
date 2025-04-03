@@ -83,31 +83,44 @@ Test for ProdSplit:
 
 ghci> prodSplit 3 4 2 6
 (1,(3,(2,2)))
-(0.01 secs, 1,327,464 bytes)
+(0.01 secs, 1,321,704 bytes)
 
 ghci> prodSplit 90 10 45 4
 (15,(6,(5,2)))
-(0.86 secs, 555,462,384 bytes)
+(0.04 secs, 9,237,912 bytes)
 
 ghci> prodSplit 20 20 20 20
 (2,(10,(10,2)))
-(1.12 secs, 712,882,112 bytes)
+(0.02 secs, 3,815,904 bytes)
 
 ghci> prodSplit 42 12 21 24
 (7,(6,(3,4)))
-(1.34 secs, 847,099,688 bytes)
+(0.03 secs, 6,107,760 bytes)
 
 ghci> prodSplit 90 30 45 12
 (5,(18,(15,2)))
-(14.03 secs, 9,580,567,688 bytes)
+(0.06 secs, 13,420,952 bytes)
 
 ghci> prodSplit 42 24 21 48
 (7,(6,(3,8)))
-(19.36 secs, 13,143,518,576 bytes)
+(0.04 secs, 9,061,152 bytes)
 
 ghci> prodSplit 20 100 125 16
 (5,(4,(25,4)))
-(21.78 secs, 14,580,270,160 bytes)
+(0.09 secs, 21,523,040 bytes)
 
-ghci> prodSplit 200 100 625 32
-"""Takes longer than 5 minutes to compute."""
+ghci> prodSplit 50 100 125 40
+(5,(10,(25,4)))
+(0.10 secs, 30,318,120 bytes)
+
+ghci> prodSplit 1600 50 800 100
+(160,(10,(5,10)))
+(0.43 secs, 256,888,368 bytes)
+
+ghci> prodSplit 1024 128 256 512
+(256,(4,(1,128)))
+(0.64 secs, 406,977,496 bytes)
+
+ghci> prodSplit 7921 676 2314 2314
+(89,(89,(26,26)))
+(99.07 secs, 68,573,386,768 bytes)

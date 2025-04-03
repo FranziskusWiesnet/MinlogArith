@@ -16,15 +16,18 @@ natLeast :: (Nat -> ((Nat -> Bool) -> Nat))
 natLeast 0 ws = 0
 natLeast n ws | n > 0 = (if (ws 0) then 0 else ((natLeast (n - 1) (\ m -> (ws (m + 1)))) + 1))
 
-natHalf :: (Nat -> Nat)
-natHalf 0 = 0
-natHalf 1 = 0
-natHalf n | n > 1 = ((natHalf (n - 2)) + 1)
+posSqrt :: (Pos -> Pos)
+posSqrt p = (posMonMax (\ q -> ((q * q) <= p)) ((natHalf (posLog p)) + 1))
 
 posLog :: (Pos -> Nat)
 posLog 1 = 0
 posLog p | even p = ((posLog (p `quot` 2)) + 1)
 posLog p | odd p = ((posLog ((p - 1) `quot` 2)) + 1)
+
+natHalf :: (Nat -> Nat)
+natHalf 0 = 0
+natHalf 1 = 0
+natHalf n | n > 1 = ((natHalf (n - 2)) + 1)
 
 posMonMaxAux :: ((Pos -> Bool) -> (Nat -> (Pos -> Pos)))
 posMonMaxAux wf 0 q = q
@@ -35,14 +38,11 @@ posMonMaxAux wf n q | n > 0 && odd q = (if (wf ((((q - 1) `quot` 2) * 2 + 1) + (
 posMonMax :: ((Pos -> Bool) -> (Nat -> Pos))
 posMonMax wf n = (posMonMaxAux wf n 1)
 
-posSqrt :: (Pos -> Pos)
-posSqrt p = (posMonMax (\ q -> ((q * q) <= p)) ((natHalf (posLog p)) + 1))
-
 posSquareNumber :: (Pos -> Bool)
 posSquareNumber p = ((\ q -> ((q * q) == p)) (posSqrt p))
 
 cPosSqr :: (Pos -> Pos)
-cPosSqr = (\ p0 -> (if (((2 ^ (natHalf (posLog p0))) * (2 ^ (natHalf (posLog p0)))) <= p0) then (posMonMaxAux (\ p1 -> ((p1 * p1) <= p0)) (natHalf (posLog p0)) (2 ^ (natHalf (posLog p0)))) else (posMonMaxAux (\ p1 -> ((p1 * p1) <= p0)) (natHalf (posLog p0)) 1)))
+cPosSqr = posSqrt
 
 natLeastUp :: (Nat -> (Nat -> ((Nat -> Bool) -> Nat)))
 natLeastUp n0 n ws = (if (n0 <= n) then ((natLeast (n - n0) (\ m -> (ws (m + n0)))) + n0) else 0)
@@ -51,9 +51,6 @@ natLeastUp n0 n ws = (if (n0 <= n) then ((natLeast (n - n0) (\ m -> (ws (m + n0)
 
 fermat :: (Pos -> (Maybe (Pos, Pos)))
 fermat = (\ p0 -> (((((\ p -> (\ x -> (\ f0 -> (\ f -> (if (1 == p) then x else (if (even p) then (f0(p `quot` 2)) else (f(p `quot` 2)))))))) p0) Nothing) (\ p2 -> (((((\ p1 -> (\ x0 -> (\ f2 -> (\ f1 -> (if (1 == p1) then x0 else (if (even p1) then (f2(p1 `quot` 2)) else (f1(p1 `quot` 2)))))))) p2) Nothing) (\ p -> (Just (2 , ((\ p3 -> p3) (p * 2)))))) (\ p -> (Just (2 , ((\ p4 -> p4) (p * 2 + 1)))))))) (\ p -> ((((\ y0 -> ((((\ y -> (\ g -> (\ g0 -> (if y then g else g0)))) y0) (\ x1 -> (\ x2 -> x1))) (\ x4 -> (\ x3 -> x3)))) (posSquareNumber (p * 2 + 1))) (Just ((posSqrt (p * 2 + 1)) , ((\ p5 -> p5) (posSqrt (p * 2 + 1)))))) ((((\ y0 -> ((((\ y1 -> (\ g1 -> (\ g2 -> (if y1 then g1 else g2)))) y0) (\ x5 -> (\ x6 -> x5))) (\ x8 -> (\ x7 -> x7)))) (p <= 2)) (((((\ p6 -> (\ x9 -> (\ f4 -> (\ f3 -> (if (1 == p6) then x9 else (if (even p6) then (f4(p6 `quot` 2)) else (f3(p6 `quot` 2)))))))) p) Nothing) (\ p8 -> (((((\ p7 -> (\ x10 -> (\ f6 -> (\ f5 -> (if (1 == p7) then x10 else (if (even p7) then (f6(p7 `quot` 2)) else (f5(p7 `quot` 2)))))))) p8) Nothing) (\ q -> Nothing)) (\ q -> Nothing)))) (\ q -> Nothing))) ((\ n0 -> (((\ n -> (\ h -> (h n))) n0) (\ l -> ((((\ y0 -> ((((\ y2 -> (\ g3 -> (\ g4 -> (if y2 then g3 else g4)))) y0) (\ x11 -> (\ x12 -> x11))) (\ x14 -> (\ x13 -> x13)))) (l == p)) Nothing) (Just ((\ p10 -> (((\ p9 -> (\ a -> (a p9))) p10) (\ q -> (((if (l) <= 1 then 1 else (l)) + q) , ((\ p11 -> p11) ((if (l) <= 1 then 1 else (l)) - q)))))) ((\ p12 -> p12) (cPosSqr (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1)))))))))) ((\ n1 -> n1) (natLeastUp ((cPosSqr (p * 2 + 1)) + 1) p (\ l -> (posSquareNumber (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1))))))))))))
-
-nfermat :: (Pos -> (Maybe (Pos, Pos)))
-nfermat = (\ p0 -> (if (1 == p0) then Nothing else (if (even p0) then ((\ p2 -> (if (1 == p2) then Nothing else (if (even p2) then ((\ p -> (Just (2 , (p * 2))))(p2 `quot` 2)) else ((\ p -> (Just (2 , (p * 2 + 1))))(p2 `quot` 2)))))(p0 `quot` 2)) else ((\ p -> (if (posSquareNumber (p * 2 + 1)) then (Just ((posSqrt (p * 2 + 1)) , (posSqrt (p * 2 + 1)))) else (if (p <= 2) then (if (1 == p) then Nothing else (if (even p) then ((\ p8 -> (if (1 == p8) then Nothing else (if (even p8) then ((\ q -> Nothing)(p8 `quot` 2)) else ((\ q -> Nothing)(p8 `quot` 2)))))(p `quot` 2)) else ((\ q -> Nothing)(p `quot` 2)))) else (if ((natLeastUp ((cPosSqr (p * 2 + 1)) + 1) p (\ l -> (posSquareNumber (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1))))) == p) then Nothing else (Just (((if ((natLeastUp ((cPosSqr (p * 2 + 1)) + 1) p (\ l -> (posSquareNumber (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1)))))) <= 1 then 1 else ((natLeastUp ((cPosSqr (p * 2 + 1)) + 1) p (\ l -> (posSquareNumber (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1))))))) + (cPosSqr (((if ((natLeastUp ((cPosSqr (p * 2 + 1)) + 1) p (\ l -> (posSquareNumber (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1)))))) <= 1 then 1 else ((natLeastUp ((cPosSqr (p * 2 + 1)) + 1) p (\ l -> (posSquareNumber (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1))))))) * (if ((natLeastUp ((cPosSqr (p * 2 + 1)) + 1) p (\ l -> (posSquareNumber (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1)))))) <= 1 then 1 else ((natLeastUp ((cPosSqr (p * 2 + 1)) + 1) p (\ l -> (posSquareNumber (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1)))))))) - (p * 2 + 1)))) , ((if ((natLeastUp ((cPosSqr (p * 2 + 1)) + 1) p (\ l -> (posSquareNumber (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1)))))) <= 1 then 1 else ((natLeastUp ((cPosSqr (p * 2 + 1)) + 1) p (\ l -> (posSquareNumber (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1))))))) - (cPosSqr (((if ((natLeastUp ((cPosSqr (p * 2 + 1)) + 1) p (\ l -> (posSquareNumber (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1)))))) <= 1 then 1 else ((natLeastUp ((cPosSqr (p * 2 + 1)) + 1) p (\ l -> (posSquareNumber (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1))))))) * (if ((natLeastUp ((cPosSqr (p * 2 + 1)) + 1) p (\ l -> (posSquareNumber (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1)))))) <= 1 then 1 else ((natLeastUp ((cPosSqr (p * 2 + 1)) + 1) p (\ l -> (posSquareNumber (((if (l) <= 1 then 1 else (l)) * (if (l) <= 1 then 1 else (l))) - (p * 2 + 1)))))))) - (p * 2 + 1))))))))))(p0 `quot` 2)))))
 
 ---------------------------------
 
