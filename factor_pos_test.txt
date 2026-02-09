@@ -1,0 +1,23 @@
+Test for the fermat factorisation:
+==================================
+
+ghci> fermat 89811880480320462757763
+Just (299686303459,299686303457)
+(0.01 secs, 476,808 bytes)
+
+ghci> fermat 54896273
+Just (8641,6353)
+(0.01 secs, 4,475,672 bytes)
+
+ghci> fermat 23447
+Nothing
+(11.83 secs, 10,911,587,408 bytes)
+
+ghci> fermat 810450000160224500006321
+Just (900500000129,900000000049)
+(115.99 secs, 97,050,975,128 bytes)
+
+ghci> fermat 89917
+Nothing
+(190.77 secs, 156,045,993,016 bytes)
+
