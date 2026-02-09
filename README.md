@@ -5,3 +5,12 @@ The relevant files are *gcd_nat.scm*, *gcd_pos.scm*, *prime_nat.scm*, *prime_pos
 In addition, the two library files *nat.scm* and *pos.scm* in the *lib* folder are also required.
 In the *test-files* folder, you can find the extracted Haskell files *gcd_pos.hs*, *fta_pos.hs*, and *factor_pos.hs*, as well as documentation of individual tests for the corresponding files, each with the suffix "_test" in the filename.
 *factor_pos_added.hs* is a slightly modified version of factor_pos.hs in which the fast square-root function *fastSqrt* was replaced by the standard square-root function *posSqrt*.
+
+# Installation of Minlog
+Instructions for installing Minlog are provided on the Minlog website: [[https://www.mathematik.uni-muenchen.de/~logik/minlog/]]
+The latest version of Minlog can also be found there. The Minlog snapshot in this repository should only be regarded as a backup in case the files mentioned above have been replaced in a newer version of Minlog.
+However, since such updates usually have a reason, we recommend checking the latest Minlog version first even in that case. Usually it is sufficient to insert the files described above into the corresponding folders.
+
+To run this Minlog-shapshot, the same programs are required as for the regular Minlog version, as explained under "Prerequisites" on the Minlog website: Git, a Scheme interpreter, Emacs, and pdfLaTeX.
+The only difference is that, instead of cloning the Minlog repository, you clone the present repository using Git commands.
+The rest of the installation remains unchanged, and the folder "minlog" of this repository then serves as the Minlog directory.
