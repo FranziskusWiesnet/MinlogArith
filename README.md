@@ -7,7 +7,7 @@ In the *test-files* folder, you can find the extracted Haskell files *gcd_pos.hs
 *factor_pos_added.hs* is a slightly modified version of factor_pos.hs in which the fast square-root function *fastSqrt* was replaced by the standard square-root function *posSqrt*.
 
 # Installation of Minlog
-Instructions for installing Minlog are provided on the Minlog website: [[https://www.mathematik.uni-muenchen.de/~logik/minlog/]]
+Instructions for installing Minlog are provided on the Minlog website: https://www.mathematik.uni-muenchen.de/~logik/minlog/
 The latest version of Minlog can also be found there. The Minlog snapshot in this repository should only be regarded as a backup in case the files mentioned above have been replaced in a newer version of Minlog.
 However, since such updates usually have a reason, we recommend checking the latest Minlog version first even in that case. Usually it is sufficient to insert the files described above into the corresponding folders.
 
