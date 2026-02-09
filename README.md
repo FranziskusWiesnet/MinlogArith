@@ -20,4 +20,4 @@ The rest of the installation remains unchanged, and the folder "minlog" of this 
 ### Haskell files
 The files *gcd_pos.hs*, *fta_pos.hs*, and *factor_pos.hs* each contain the extracted terms from the Minlog files *gcd_pos.scm*, *fta_pos.scm*, and *factor_pos.scm*, respectively.
 *gcd_pos.hs* contains the Euclidean algorithm *euclid*, Stein’s algorithm *stein*, the extended Euclidean algorithm *extEuclid*, and the extended Stein algorithm *extStein*.
-*fta_pos.scm* contains the prime factorisation function (*toPrimes*),; the generation of a permutation from two prime factorisations of the same number (*genPms*); and the decomposition of a product \(uv = xy\) into numbers \(a, b, c, d\) with \(ab = u\), \(cd = v\), \(ac = x\), and \(bd = y\) (*prodSplit*)
+*fta_pos.scm* contains the prime factorisation function (*toPrimes*),; the generation of a permutation from two prime factorisations of the same number (*genPms*); and the decomposition of a product $uv = xy$ into numbers $a, b, c, d$ with $ab = u$, $cd = v$, $ac = x$, and $bd = y$ (*prodSplit*)
