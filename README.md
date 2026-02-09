@@ -22,7 +22,9 @@ The files *gcd_pos.hs*, *fta_pos.hs*, and *factor_pos.hs* each contain the extra
 - *gcd_pos.hs* contains the Euclidean algorithm *euclid*, Stein’s algorithm *stein*, the extended Euclidean algorithm *extEuclid*, and the extended Stein algorithm *extStein*.
 - *fta_pos.scm* contains the prime factorisation function (*toPrimes*),; the generation of a permutation from two prime factorisations of the same number (*genPms*); and the decomposition of a product $uv = xy$ into numbers $a, b, c, d$ with $ab = u$, $cd = v$, $ac = x$, and $bd = y$ (*prodSplit*)
 - *factor_pos.hs* contains the two rounded square-root functions *posSqrt* and *fastSqrt*, as well as Fermat's factorisation algorithm *fermat*.
-In the file *factor_pos_modified.hs*, *fastSqrt* in Fermat's factorisation algorithm was replaced by *posSqrt* for testing purposes. This is the only .hs-file that was not produced exclusively by Minlog.
-### Test dokumentation
-The files with the suffix "_test.txt" each document runtime tests of the corresponding .hs-file. The tests were run in GHCi, using the command :set +s to display timing and memory statistics. Experiments were run on a computer with an Intel Core Ultra 5 125H (Meteor Lake-H) CPU (up to 4.5 GHz), 16 GB DDR5 RAM, running Linux.
-### SymPy File
+In the file *factor_pos_added.hs*, the function *fermatPosSqrt* was added for testing purposes by replacing *fastSqrt* with *posSqrt* in Fermat’s factorisation algorithm. This is the only .hs-file that was not produced exclusively by Minlog.
+### Test documentation
+The files with the suffix "_test.txt" each document runtime tests of the corresponding .hs-file. The tests were run in GHCi, using the command *:set +s* to display timing and memory statistics. Experiments were run on a computer with an Intel Core Ultra 5 125H (Meteor Lake-H) CPU (up to 4.5 GHz), 16 GB DDR5 RAM, running Linux.
+### SymPy file
+In the Python file *poly_approx.py*, an approximating polynomial was fitted visualised in a plot to some of the measurement results using SymPy.
+The source code is provided solely for the sake of transparency. Comparable approximations and visualisations can be produced with most other computer algebra systems.
