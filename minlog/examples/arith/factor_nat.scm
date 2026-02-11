@@ -236,7 +236,7 @@
 (use "TotalVar")
 (save-totality)
 
-;; PrimeOrComposedFermat
+;; NatPrimeOrComposedFermat
 (set-goal "all n(
      Succ Zero<n -> 
      NatPrime n orr exd l0 exl l1(1<l0 andnc 1<l1 andnc n=l0*l1))")
@@ -544,4 +544,4 @@
    ;; Last part of the conjunction is already proven
    (use 12)
 ;; (cp)
-(save "PrimeOrComposedFermat")
+(save "NatPrimeOrComposedFermat")

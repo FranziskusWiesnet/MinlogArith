@@ -351,7 +351,7 @@
 ;; (cp)
 (save "PosProdInvPms")
 
-;; PrimesConstInvTranspAux
+;; PosPrimesInvTranspAux
 (set-goal "all m,n,ps(n<m -> PosPrimes ps (Succ m)=
                              PosPrimes ([l]ps(Transp n m l)) (Succ m))") 
 (ind)

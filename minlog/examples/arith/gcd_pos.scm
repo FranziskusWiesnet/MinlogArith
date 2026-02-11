@@ -300,7 +300,7 @@
 ;; (cp)
 (save-totality)
 
-;; PosGcdToGcdNat
+;; PosGcdToNatGcd
 (set-goal "all p,q PosToNat(PosGcd p q)=NatGcd(PosToNat p)(PosToNat q)")
 (assert "all n,p,q(
  p+q<n -> PosToNat(PosGcd p q)=NatGcd(PosToNat p)(PosToNat q))")

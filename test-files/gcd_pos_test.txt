@@ -1,5 +1,5 @@
-Tests to compute the gcd  with Euclid:
-======================================
+Tests to compute the gcd with Euclid:
+=====================================
 
 
 500 digits:
@@ -83,8 +83,8 @@ ghci> euclid 2829623808797946906545277442765768882964860333156463455694932855310
 
 
 
-Tests to compute the gcd  with Stein:
-=====================================
+Tests to compute the gcd with Stein:
+====================================
 
 
 10,000 digits:

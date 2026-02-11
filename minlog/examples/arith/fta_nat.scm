@@ -294,7 +294,7 @@ n<l -> Zero<n -> exi ns exi m((NatPrimes ns m) andb NatProd Zero m ns = n))")
 ;; (cp)
 (save-totality)
 
-;;Pms Transp
+;;PmsTransp
 (set-goal "n0 max n1 < m -> Pms m(Transp n0 n1)(Transp n0 n1)")
 (strip)
 (intro 0)
@@ -599,7 +599,7 @@ n<l -> Zero<n -> exi ns exi m((NatPrimes ns m) andb NatProd Zero m ns = n))")
 ;; (cp)
 (save "NatProdInvPms")
 
-;; PrimesConstInvTranspAux
+;; NatPrimesInvTranspAux
 (set-goal "all m,n,ns(
  n<m -> NatPrimes ns(Succ m)=NatPrimes ([l]ns(Transp n m l)) (Succ m))")
 (ind)

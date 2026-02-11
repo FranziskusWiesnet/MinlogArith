@@ -176,7 +176,7 @@
 ;;(cp)
 (save "PosSquareFastSqrtUpBound")
 
-;;PosSquareFastSqrtLowBound"
+;;PosSquareFastSqrtLowBound
 (set-goal "all p,q(FastSqrt p<q -> p<q*q)")
 (assert "all p( all q(FastSqrt p<q -> p<q*q) andnc 
     all q(FastSqrt(SZero p)<q -> SZero p<q*q) andnc 

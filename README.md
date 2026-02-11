@@ -1,6 +1,7 @@
 # Arithmetic in Minlog
 
 This repository provides an overview of number theory in Minlog.
+
 In the folder *minlog* there is a snapshot of Minlog in which all number-theoretic implementations run. The relevant files can be found in examples/arith.
 The relevant files are *gcd_nat.scm*, *gcd_pos.scm*, *prime_nat.scm*, *prime_pos.scm*, *fta_nat.scm*, *fta_pos.scm*, *factor_nat.scm*, and *factor_pos.scm*.
 In addition, the two library files *nat.scm* and *pos.scm* in the *lib* folder are also required.
@@ -28,3 +29,8 @@ The files with the suffix "_test.txt" each document runtime tests of the corresp
 ### SymPy file
 In the Python file *poly_approx.py*, an approximating polynomial was fitted visualised in a plot to some of the measurement results using SymPy.
 The source code is provided solely for the sake of transparency. Comparable approximations and visualisations can be produced with most other computer algebra systems.
+
+## Paper
+
+- Preprint: *Verified Program Extraction in Number Theory: The Fundamental Theorem of Arithmetic and Relatives*, arXiv:2504.03460, https://arxiv.org/abs/2504.03460
+- If a journal version becomes available, this section will be updated with the DOI.
