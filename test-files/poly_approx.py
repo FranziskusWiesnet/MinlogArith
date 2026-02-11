@@ -96,14 +96,15 @@ if __name__ == '__main__':
     dist_extEuclid = "600"
 
     # Choose which dataset to fit
-    ys = ys_fastsqrt
-    dist = dist_fastsqrt
+    ys = ys_stein
+    dist = dist_stein
 
     # x-axis: experiment index 1..10 (each corresponds to an increasing digit count)
     xs = list(range(1, 11, 1))
 
     # Select polynomial degree by BIC (degree <= 9) under the constraint p(0)=0
-    best = select_degree_by_bic(xs, ys, max_deg=6, through_origin=True)
+    # If max_deg = 9 does not produce good results, one can change it here.
+    best = select_degree_by_bic(xs, ys, max_deg=9, through_origin=True)
     deg = best["deg"]
     poly = best["poly"]
 
@@ -123,7 +124,7 @@ if __name__ == '__main__':
     # Include the point (0,0) explicitly since the model is constrained to pass through it
     plt.scatter([0] + xs, [0.0] + ys, color="blue", marker="o", label="Measured data")
 
-    # If the selected degree smaler 8, we choose not to plot the curve
+    # If the selected degree is not smaller than 8, we choose not to plot the curve
     # to avoid visually endorsing a potentially overfitted model.
     if deg < 8:
         plt.plot(x_grid, y_grid, color="red", linewidth=2, label=f"Polynomial fit (degree {deg})")
