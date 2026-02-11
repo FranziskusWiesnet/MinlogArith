@@ -1,5 +1,9 @@
+<<<<<<< HEAD:gcd_nat.scm
 ;; 2025-04-02.  gcd_nat.scm.  Based on Franziskus Wiesnet's
 ;; div_nat.scm and gcd_nat.scm
+=======
+;; 2025-02-08.  gcd_nat.scm.  Written by Franziskus Wiesnet.
+>>>>>>> dev:minlog/examples/arith/gcd_nat.scm
 
 ;; (load "~/git/minlog/init.scm")
 ;; (set! COMMENT-FLAG #f)
@@ -305,9 +309,6 @@
 (use "NatMaxUB2")
 ;; (cp)
 (save-totality)
-
-;; NatGcd
-;; ======
 
 ;; NatGcdSelf
 (set-goal "all n NatGcd n n=n")

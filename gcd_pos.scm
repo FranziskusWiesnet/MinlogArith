@@ -1,5 +1,9 @@
+<<<<<<< HEAD:gcd_pos.scm
 ;; 2025-04-02.  gcd_pos.scm.  Based on Franziskus Wiesnet's
 ;; div_pos.scm and gcd_pos.scm
+=======
+;; 2025-02-08.  gcd_pos.scm.  Written by Franziskus Wiesnet.
+>>>>>>> dev:minlog/examples/arith/gcd_pos.scm
 
 ;; (load "~/git/minlog/init.scm")
 ;; (set! COMMENT-FLAG #f)

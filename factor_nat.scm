@@ -1,5 +1,4 @@
-;; 2025-04-03.  factor_nat.scm.  Based on Franziskus Wiesnet's
-;; div_nat.scm gcd_nat.scm prime_nat.scm FTA_nat.scm and Factor_nat.scm
+;; 2026-02-05.  factor_nat.scm.  Written by Franziskus Wiesnet.
 
 ;; (load "~/git/minlog/init.scm")
 ;; (set! COMMENT-FLAG #f)

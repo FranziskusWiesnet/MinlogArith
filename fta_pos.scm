@@ -1,5 +1,4 @@
-;; 2025-04-02.  fta_pos.scm.  Based on Franziskus Wiesnet's
-;; div_pos.scm gcd_pos.scm prime_pos.scm and FTA_pos.scm
+;; 2026-02-05.  fta_pos.scm.  Written by Franziskus Wiesnet.
 
 ;; (load "~/git/minlog/init.scm")
 ;; (set! COMMENT-FLAG #f)
@@ -1360,9 +1359,9 @@
 ;; (animate-no-nt "PosDivToProd")
 ;; (animate-no-nt "PosPrimeDivProdToDiv")
 
-;; (terms-to-haskell-program
-;;   "/path/to/Haskell/file/fta_pos.hs"
-;;   (list
-;;    (list etermExPrime "toPrimes")
-;;    (list etermToPms "genPms")
-;;    (list etermProdSplit "prodSplit")))
+(terms-to-haskell-program
+  "/path/to/Haskell/file/fta_pos.hs"
+  (list
+   (list etermExPrime "toPrimes")
+   (list etermToPms "genPms")
+   (list etermProdSplit "prodSplit")))
