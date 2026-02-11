@@ -1,3 +1,21 @@
+Done in dev branch 2026-02-11
+
+In src/ets.scm
+
+Definition of term-to-pure-extnc-formula commented out.  Was already
+in psym.scm
+
+In examples/arith/
+
+Update of Franziskus Wiesnet's files gcd_nat.scm gcd_pos.scm
+prime_nat.scm prime_pos.scm fta_nat.scm fta_pos.scm factor_nat.scm
+factor_pos.scm
+
+In init.scm
+
+Updated
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Done in dev branch 2026-02-07
 
 In src/init.scm

@@ -1,4 +1,4 @@
-;; 2026-02-07.  ets.scm
+;; 2026-02-10.  ets.scm
 
 ;; 16. Extracted terms
 ;; ===================
@@ -1752,8 +1752,8 @@
 ;; (cp)
 (save "PairConstrExtNc")
 
-(define (term-to-pure-extnc-formula term)
-  (terms-to-pure-eqpnc-formula term term))
+;; (define (term-to-pure-extnc-formula term)
+;;   (terms-to-pure-eqpnc-formula term term))
 
 ;; YprodRecExtNc
 (set-goal (rename-variables (term-to-pure-extnc-formula

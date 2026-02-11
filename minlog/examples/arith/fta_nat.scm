@@ -1,5 +1,4 @@
-;; 2025-04-02.  fta_nat.scm.  Based on Franziskus Wiesnet's
-;; div_nat.scm gcd_nat.scm prime_nat.scm and FTA_nat.scm
+;; 2026-02-08.  fta_nat.scm.  Written by Franziskus Wiesnet.
 
 ;; (load "~/git/minlog/init.scm")
 ;; (set! COMMENT-FLAG #f)

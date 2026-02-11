@@ -1,5 +1,4 @@
-;; 2025-04-02.  prime_nat.scm.  Based on Franziskus Wiesnet's
-;; div_nat.scm and gcd_nat.scm
+;; 2026-02-08.  prime_nat.scm.  Written by Franziskus Wiesnet.
 
 ;; (load "~/git/minlog/init.scm")
 ;; (set! COMMENT-FLAG #f)
@@ -593,9 +592,8 @@
 
 ;; Euclid's proof of the infinitude of prime numbers
 
-;; NatPrimesToNewPrime
-(set-goal "all m,ns(
- NatPrimes ns m -> exl n(NatPrime n andnc NatNewNumber n ns m))")
+;; NatListToNewPrime
+(set-goal "all m,ns(all m  0<NatProd 0 m ns ->  exl n(NatPrime n andnc NatNewNumber n ns m))")
 (assume "m" "ns" 1)
 (intro 0 (pt "NatLeastFactor(NatProd Zero m ns+1)"))
 (split)
@@ -603,23 +601,48 @@
 (use "NatLeLtTrans" (pt "Zero+(Succ Zero)"))
 (use "Truth")
 (use "NatLtMonPlus1")
-(use "NatPrimesToProdNotZero")
 (use 1)
 (use "Truth")
 (use "NatDivProdPlusOneToNewNumber")
 (use "NatLeastFactorProp0")
-(use "NatPrimesToProdNotZero")
 (use 1)
 (simp "NatDiv0CompRule")
 (use "NatLeastFactorProp1")
 (use "NatLeLtTrans" (pt "0+1"))
 (use "Truth")
 (use "NatLtMonPlus1")
-(use "NatPrimesToProdNotZero")
 (use 1)
 (use "Truth")
 ;; (cp)
-(save "NatPrimesToNewPrime")
+(save "NatListToNewPrime")
+
+;; NatPrimesToNewPrime
+;; (set-goal "all m,ns(
+;;  NatPrimes ns m -> exl n(NatPrime n andnc NatNewNumber n ns m))")
+;; (assume "m" "ns" 1)
+;; (intro 0 (pt "NatLeastFactor(NatProd Zero m ns+1)"))
+;; (split)
+;; (use "NatLeastFactorPrime")
+;; (use "NatLeLtTrans" (pt "Zero+(Succ Zero)"))
+;; (use "Truth")
+;; (use "NatLtMonPlus1")
+;; (use "NatPrimesToProdNotZero")
+;; (use 1)
+;; (use "Truth")
+;; (use "NatDivProdPlusOneToNewNumber")
+;; (use "NatLeastFactorProp0")
+;; (use "NatPrimesToProdNotZero")
+;; (use 1)
+;; (simp "NatDiv0CompRule")
+;; (use "NatLeastFactorProp1")
+;; (use "NatLeLtTrans" (pt "0+1"))
+;; (use "Truth")
+;; (use "NatLtMonPlus1")
+;; (use "NatPrimesToProdNotZero")
+;; (use 1)
+;; (use "Truth")
+;; (cp)
+;;(save "NatPrimesToNewPrime")
 
 ;; NatPrimeToIrred (Euclid's lemma)
 (set-goal "all l,n,m(
